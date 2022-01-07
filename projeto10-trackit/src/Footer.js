@@ -23,7 +23,7 @@ const StyledFooter = styled.div`
     div {
     position: relative;
     bottom: 25px;
-    width: 91px;
+    min-width: 91px;
     height: 91px;
     background-color: #52B6FF;
     border-radius: 100%;

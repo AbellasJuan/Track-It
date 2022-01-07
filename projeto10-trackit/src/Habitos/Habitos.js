@@ -38,6 +38,15 @@ export default function Habitos() {
             </AddHabits>
 
             <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+            <UnicoHabito/>
+
 
             <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
         </HabitsContainer>
@@ -48,12 +57,13 @@ export default function Habitos() {
 
 const HabitsContainer = styled.div`
     max-width: 100%;
-    height: calc(100vh - 98px);
+    min-height: calc(100vh - 98px);
     background-color: #E5E5E5;
     
     padding-top: 98px;
     padding-left: 17px;
     padding-right: 18px;
+    padding-bottom: 10px;
 
     p{
         padding-top: 28px;
@@ -69,7 +79,7 @@ const MyHabits = styled.div`
     display:flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 40px;
+    font-size: 45px;
     color: #52B6FF;
     
     span{
