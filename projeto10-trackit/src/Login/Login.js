@@ -57,9 +57,7 @@ const Container = styled.div`
     background-color: #52B6FF;
     border-radius: 5px;
     font-family: Lexend Deca;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20.976px;
+    font-size: 21px;
     line-height: 26px;
     text-align: center;
     color: #FFFFFF;
