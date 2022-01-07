@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { MdAddBox } from 'react-icons/md';
 import Header from '../Header.js';
 import Footer from '../Footer.js';
+import UnicoHabito from './UnicoHabito.js';
 
 export default function Habitos() {
     return (
@@ -35,6 +36,8 @@ export default function Habitos() {
                     </ButtonSave>
                 </Buttons>
             </AddHabits>
+
+            <UnicoHabito/>
 
             <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
         </HabitsContainer>
@@ -169,3 +172,5 @@ const ButtonSave = styled.div`
         color: #FFFFFF;
     }
 `
+
+export { WeekDays };
