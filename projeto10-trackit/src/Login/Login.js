@@ -73,5 +73,3 @@ const Container = styled.div`
     color: #52B6FF;  
   }
 `
-
-export {Container};
