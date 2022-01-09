@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postSignUp } from '../service/API.js';
-// import Loader from 'react-loader-spinner';
 import Swal from 'sweetalert2';
 
 export default function Cadastro() {
@@ -10,7 +9,7 @@ export default function Cadastro() {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
-	const [senha, setSenha] = useState("");
+	  const [senha, setSenha] = useState("");
     const [nome, setNome] = useState("");
     const [foto, setFoto] = useState("");
 

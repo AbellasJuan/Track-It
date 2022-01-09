@@ -1,14 +1,20 @@
 import styled from "styled-components";
+import UserContext from "./Context/UserContext.js";
+import { useContext } from "react";
 
 export default function Header() {
   
+   const { user } = useContext(UserContext);
+
+   console.log(user);
+   
     return (
       <StyledHeader>
         <h1>Trackit</h1>
-        <img src="../assets/trackitImage.png" alt="" />
+        <img src={user.image} alt="" />
       </StyledHeader>
     );
-  }
+}
   
   const StyledHeader = styled.div`
     font-family: 'Playball', cursive;
