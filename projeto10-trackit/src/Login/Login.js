@@ -74,6 +74,7 @@ const Container = styled.div`
     font-family: Lexend Deca;
     padding-left: 11px;
     margin-bottom: 6px;
+    font-size: 19px;
   }
 
   input::placeholder{
