@@ -115,6 +115,7 @@ const Input = styled.input`
     pointer-events: ${props => props.state ? 'none' : 'all'};
     background-color: ${props => props.state ? '#f2f2f2' : '#ffffff'};
     font-size: 19px;
+    font-family: Lexend Deca;
 
   ::placeholder{
     
@@ -138,4 +139,5 @@ const SubmitButton = styled.button`
     color: #FFFFFF;
     opacity: ${props => props.state ? '0.5' : '1'};
     pointer-events: ${props => props.state ? 'none' : 'all'};
+    font-family: Lexend Deca;
 `;
