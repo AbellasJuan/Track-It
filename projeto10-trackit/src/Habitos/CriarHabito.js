@@ -120,6 +120,7 @@ const Name = styled.input`
     color: ${props => props.state ? '#afafaf' : '#000000'};
     pointer-events: ${props => props.state ? 'none' : 'all'};
     background-color: ${props => props.state ? '#f2f2f2' : '#ffffff'};
+    font-family: Lexend Deca;
     
     ::placeholder {
         color: #dbdbdb;
@@ -142,6 +143,7 @@ const Day = styled.button`
     color: ${props => props.state ? '#dbdbdb' : '#ffffff'};
     background-color: ${props => props.state ? '#ffffff' : '#cfcfcf'};
     margin-right: 5px;
+    font-family: Lexend Deca;
 `;
 
 const Actions = styled.div`
@@ -159,6 +161,7 @@ const Cancel = styled.button`
     font-size: 16px;
     color: #52b6ff;
     margin-right: 10px;
+    font-family: Lexend Deca;
 `;
 
 const Save = styled.button`
@@ -172,4 +175,5 @@ const Save = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Lexend Deca;
 `
