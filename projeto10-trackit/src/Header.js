@@ -5,8 +5,6 @@ import { useContext } from "react";
 export default function Header() {
   
    const { user } = useContext(UserContext);
-
-   console.log(user);
    
     return (
       <StyledHeader>

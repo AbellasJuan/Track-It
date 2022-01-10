@@ -6,6 +6,7 @@ import Cadastro from './Cadastro/Cadastro.js';
 import Habitos from './Habitos/Habitos.js';
 import MeusHabitosHoje from './Hoje/MeusHabitosHoje.js';
 import Historico from './Historico/Historico.js'; 
+import GlobalStyle from '../src/globalStyles.js';
 
 export default function App() {
 
@@ -15,7 +16,9 @@ export default function App() {
   return (
     <UserContext.Provider value={{user, todayHabits, setTodayHabits}}>
       <BrowserRouter>
+      <GlobalStyle />
         <Routes>
+        
         <Route path='/' element={<Login setUser={setUser}/>}/>
         <Route path='/cadastro' element={<Cadastro/>}/>
         <Route path='/habitos' element={<Habitos/>}/>

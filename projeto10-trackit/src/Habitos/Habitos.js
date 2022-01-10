@@ -1,54 +1,81 @@
 import styled from 'styled-components';
 import { MdAddBox } from 'react-icons/md';
+import UserContext from '../Context/UserContext.js';
+import { useContext, useEffect, useState } from 'react';
+import { getUserHabits } from '../service/API.js';
 import Header from '../Header.js';
 import Footer from '../Footer.js';
 import UnicoHabito from './UnicoHabito.js';
+import CriarHabito from './CriarHabito.js';
 
 export default function Habitos() {
+
+    const { user } = useContext(UserContext);
+    const weekdays = [
+        {
+            day: 'D',
+            dayID: 0,
+            isAvailable: 1
+        },
+        {
+            day: 'S',
+            dayID: 1,
+            isAvailable: 1
+        },
+        {
+            day: 'T',
+            dayID: 2,
+            isAvailable: 1
+        },
+        {
+            day: 'Q',
+            dayID: 3,
+            isAvailable: 1
+        },
+        {
+            day: 'Q',
+            dayID: 4,
+            isAvailable: 1
+        },
+        {
+            day: 'S',
+            dayID: 5,
+            isAvailable: 1
+        },
+        {
+            day: 'S',
+            dayID: 6,
+            isAvailable: 1
+        },
+    ];
+
+    const [habits, setHabits] = useState([]);
+    const [container, setContainer] = useState(0);
+
+    useEffect(() => {
+        getUserHabits(user.token)
+            .then((response) => setHabits(response.data))
+            .catch(() => console.error);
+    }, [user.token]);
+
+
     return (
         <>
         <Header/>
         <HabitsContainer>
-            <MyHabits>
+            <MyHabits onClick={() => setContainer(1)} >
                 <span>Meus hábitos</span>
                 <MdAddBox/>
             </MyHabits>
-            <AddHabits>
-                <input placeholder='nome do hábito' />
-                
-                <WeekDays>
-                <div><span>D</span></div>
-                <div><span>S</span></div>
-                <div><span>T</span></div>
-                <div><span>Q</span></div>
-                <div><span>Q</span></div>
-                <div><span>S</span></div>
-                <div><span>S</span></div>
-                </WeekDays>
 
-                <Buttons>
-                    <ButtonCancel>
-                        <span>Cancelar</span>
-                    </ButtonCancel>
-                    
-                    <ButtonSave>
-                        <span>Salvar</span>
-                    </ButtonSave>
-                </Buttons>
-            </AddHabits>
+            <CriarHabito weekdays={weekdays} container={container} setContainer={setContainer} setHabits={setHabits}/>
+            
 
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
-            <UnicoHabito/>
+            <UnicoHabito habits={habits} setHabits={setHabits} weekdays={weekdays}/>
+            
 
-
-            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+            {habits.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : ''}
+            
         </HabitsContainer>
         <Footer/>
         </>
@@ -59,19 +86,18 @@ const HabitsContainer = styled.div`
     max-width: 100%;
     min-height: calc(100vh - 98px);
     background-color: #E5E5E5;
-    
     padding-top: 98px;
     padding-left: 17px;
     padding-right: 18px;
-    padding-bottom: 10px;
+    padding-bottom: 110px;
 
     p{
         padding-top: 28px;
         height: 74px;
-        font-family: Lexend Deca;
         font-size: 18px;
         line-height: 22px;
         color: #666666;
+        font-family: Lexend Deca;
     }
 `
 
@@ -88,99 +114,4 @@ const MyHabits = styled.div`
         line-height: 29px;
         color: #126BA5;
     }
-`
-
-const AddHabits = styled.div`
-    min-width: 85vw;
-    height: 180px;
-    margin-right: 5px;
-    margin-top: 20px;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    box-sizing: border-box;
-
-    input{
-        margin-top: 18px;
-        margin-left: 17px;
-        width: 90%;
-        height: 45px;
-        padding-left: 11px;
-        
-        background-color: #FFFFFF;
-        border: 1px solid #D5D5D5;
-        box-sizing: border-box;
-        border-radius: 5px;
-
-        font-family: Lexend Deca;
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    input::placeholder{
-        color: #DBDBDB;
-    }
-`
-
-const WeekDays = styled.div` 
-    display: flex;
-    margin-left: 17px;
-    
-    div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-        margin-right: 5px;
-        margin-top: 8px;
-        background: #FFFFFF;
-        border: 1px solid #D5D5D5;
-        box-sizing: border-box;
-        border-radius: 5px;
-    }
-
-    span{
-        font-family: Lexend Deca;
-        font-size: 20px;
-        color: #DBDBDB;
-    }
-`
-
-const Buttons = styled.div`
-    display: flex;
-    margin-top: 29px;
-    margin-right: 16px;
-    justify-content: end;
-`
-
-const ButtonCancel = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    span{
-        font-family: Lexend Deca;
-        font-size: 16px;
-        text-align: center;
-        color: #52B6FF;
-    }
-`
-
-const ButtonSave = styled.div`
-    width: 84px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 23px;
-    background: #52B6FF;
-    border-radius: 5px;
-
-    span{
-        font-family: Lexend Deca;
-        font-size: 16px;
-        color: #FFFFFF;
-    }
-`
-
-export { WeekDays };
+`;

@@ -22,7 +22,6 @@ export default function Login({ setUser }) {
         .then(response => {
             setUser(response.data)
             navigate('/hoje')
-            console.log('foi')
         })
         .catch(() => {
             Swal.fire({

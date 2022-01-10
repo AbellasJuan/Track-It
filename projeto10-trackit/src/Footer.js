@@ -9,10 +9,9 @@ export default function Footer(){
     
     const { todayHabits } = useContext(UserContext);
 
-    function calcPercentage () {
+    function calcPercentage() {
         const progress = todayHabits.filter(habit => habit.done).length;
         const totalHabits = todayHabits.length;
-
         return ((progress/totalHabits) * 100).toFixed(0);
     }
     
